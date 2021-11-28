@@ -1,0 +1,57 @@
+                      
+                      ---GIT ASSIGNMENT--
+
+    1 Install git at your local ubuntu system
+       Open terminal on your system 
+	         $ sudo apt install git
+	         $ git - -version ( git version 2.25.1)
+	         $ git config - -global user.name "Shivanjalee gaikwad"
+	         $ git config - -global user.email "shivanjalee.gaikwad@weboniselab.com"
+	         $ git config - -list 
+			user.name "Shivanjalee gaikwad"
+			user.email "shivanjalee.gaikwad@weboniselab.com"
+
+    2 Create a Webonise git account with name <your-name>-webonise on http://github.com
+       shivanjalee-weboniselab
+       
+    3 Create a github repository Webonator-Assignments in your webonise git account
+       Webonise-assignmnts (Repository)
+       
+    4 Pull the repo on local system (By default branch is master)
+          		$ mkdir Webonise-assignments
+		$ cd Webonise-assignments
+		$ git init 
+		 (initialised empty Git repository in C:/Users/Desktop/Webonise-			            assignmnts/.git/)
+		$ $git clone git@github.com:shivanjaleegaikwad/Webonise-         			            assignmnts.git
+
+    5 Create 3 branches (develop, testing and staging from master branch)
+        5.1 develop branch is used for development and unit testing
+           $ git checkout -b develope master 
+        5.2 testing branch is used for testing environment deployments within project
+           $ git checkout -b testing master 
+        5.3 staging branch is used for staging or pre-production environment deployments within project
+           $ git checkout -b staging master 
+        5.4 master (i.e. default branch) is used for production or live deployments within project
+           
+    6 Switch to develop branch
+           $ git checkout -b develope 
+           
+    7 Create feature  branch from develop
+           $ git checkout -b  feature develope 
+           
+    8 Switch to feature branch
+		$ git checkout -b  feature 
+
+    9 Create file/folder structure for each assignment type like below
+    10 Add files to git
+           $ git status (if files are untracked then)
+           $ git add Agile assignment.docx
+           $ git status (it will show that files are ready to commit)
+           
+    11 Commit changes in feature branch
+		$ git commit -m "Assignment"
+
+    12 Push feature branch
+		$ git push origin feature
+
+       
