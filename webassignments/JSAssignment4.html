@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <title>Details </title>
+</head>
+<style>
+    form{
+        width: 500px;
+        margin: 300px auto;
+
+    }
+    div{
+        width: 150px;
+        margin: 25px auto;
+    }
+    button
+    {
+        width: 100;
+        margin: auto;
+
+    }
+   
+</style>
+
+<body>
+    <form name="form1" style="display: flex; flex-direction: column; justify-items: center; margin-top: 100px;">
+        <div class="name">
+            <label> Name : </label> 
+            <input id="name" type="text" placeholder="ENTER NAME">
+            <span></span>
+        </div>
+            
+        <div class="email">
+            <label> Email ID :</label>
+             <input id="email" type="email" placeholder=" ENTER EMAIL">
+             <span></span>
+        </div>
+        
+        <button type="submit" onclick="addsession()">SUBMIT</button>
+        <button style="margin: 10px auto ;" type="button" onclick="show()">Show User</button>
+    
+
+        <div id="show" style="margin: 60px auto; width: 500px;">
+
+
+        </div>
+        
+
+    </form>
+
+
+   
+</body>
+
+<script>
+    
+    const addsession = () => {
+        var newobj = new Object();
+        var date = new Date();
+        newobj.time = date.toLocaleString();
+        newobj.name = document.getElementById("name").value;
+        newobj.email = document.getElementById("email").value;
+        
+        if(!newobj.name || !newobj.email)
+        {
+            return;
+        }
+        
+        if (sessionStorage.data) {
+            data = JSON.parse(sessionStorage.getItem("data"));
+        }
+        else {
+            data = [];
+        }
+
+        data.push(newobj);
+
+        sessionStorage.setItem("data", JSON.stringify(data));
+
+        var retrivedata = sessionStorage.getItem("data");
+
+        console.log(JSON.parse(retrivedata));
+        
+
+    }
+
+
+    const show = () =>{
+    
+        var retrive = sessionStorage.getItem("data");
+        retrive = JSON.parse(retrive);
+        console.log(retrive);
+        var main = document.getElementById("show");
+
+         
+             retrive.map((item)=>{
+                var newli = document.createElement("li");
+                newli.setAttribute("style","margin: 30px auto");
+
+                newli.innerHTML = `Time : ${item.time} , User : ${item.name} , Email: ${item.email}`;
+
+                main.appendChild(newli);
+
+             })
+        
+        
+
+    }
+</script>
+</html>
